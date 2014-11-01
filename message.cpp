@@ -143,6 +143,11 @@ bool Message::AddProgram(Program *p)
         sdp += "a=type:broadcast\r\n";
         sdp += "a=charset:UTF-8\r\n";
 
+        /*RFC4750 - IGMPV3  */  
+        if (p->IsIgmpv3())
+        sdp += "a=source-filter:incl IN " + ipv + " " 
+                  + p->GetAddress() + " " + p->GetMachine() + "\r\n";      
+
         char portbuf[6];
         snprintf(portbuf, sizeof(portbuf), "%u", (unsigned)p->GetPort());
         string port = portbuf;

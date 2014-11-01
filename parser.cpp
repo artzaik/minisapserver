@@ -373,6 +373,10 @@ int Config::Parse()
             something=true;
             pp->SetPort(atoi(tline));
         }
+        if(strstr(line,"igmpv3") && strstr(line,"yes"))
+        {
+            pp->SetIgmpv3(true);
+        }
         if(strstr(line,"customsdp="))
         {
             strgeta(line,tline,'=');

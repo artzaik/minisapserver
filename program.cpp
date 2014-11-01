@@ -37,7 +37,7 @@ using namespace std;
 
 #include "program.h"
 
-Program::Program() : b_rtp(false), b_has_pl_group(false)
+Program::Program() : b_rtp(false), b_has_pl_group(false), b_igmpv3(false)
 {
     /* Set default Values */
     address="";
@@ -61,6 +61,7 @@ string Program::GetTTL(void){return program_ttl;}
 string Program::GetPlGroup(void){return pl_group;}
 string Program::GetCustomSDP(void){return custom_sdp;}
 bool   Program::IsPermanent(void){return permanent;}
+bool   Program::IsIgmpv3(void){return b_igmpv3;}
 bool   Program::IsRTP(void){return b_rtp;}
 bool   Program::HasPlGroup(void){return b_has_pl_group;}
 bool   Program::HasCustomSDP(void){return custom_sdp.size() ? true : false;}
@@ -71,6 +72,7 @@ void Program::SetSite(const char* s){site=s;}
 void Program::SetAddress(const char* a){address=a;}
 void Program::SetPlGroup(const char *h){pl_group=h;}
 void Program::SetRTP(bool b){b_rtp = b;}
+void Program::SetIgmpv3(bool b){b_igmpv3 = b;}
 void Program::SetHasPlGroup(bool b){b_has_pl_group = b ;}
 void Program::SetPort(uint16_t p) { port = p; }
 void Program::SetTTL(const char *p){program_ttl=p;}

@@ -51,11 +51,13 @@ class Program
     void SetPlGroup(const char *);
     void SetHasPlGroup(bool);
     void SetRTP(bool);
+    void SetIgmpv3(bool);
     void SetCustomSDP(const char *);
 
     bool IsPermanent();
     bool IsRTP();
     bool HasPlGroup();
+    bool IsIgmpv3();
     bool HasCustomSDP();
 
   private:
@@ -68,6 +70,7 @@ class Program
     string pl_group;
     string custom_sdp;
     bool permanent;
+    bool b_igmpv3;
     bool b_rtp;
     bool b_has_pl_group;
     uint16_t port;
